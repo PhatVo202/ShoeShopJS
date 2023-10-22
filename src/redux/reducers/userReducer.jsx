@@ -3,8 +3,6 @@ import axios from "axios";
 import { history } from "../../index";
 import {
   ACCESS_TOKEN,
-  //   //   getStore,
-  //   getStoreJson,
   saveStore,
   saveStoreJson,
   getStoreJson,
@@ -24,7 +22,6 @@ const initialState = {
   userProfile: null,
   arrFavouriteProduct: [],
   userOrder: null,
-  // facebookToken: {},
 };
 
 const userReducer = createSlice({
@@ -128,27 +125,27 @@ export const renderFavProduct = () => {
     dispatch(action);
   };
 };
-export const facebookLogin = (facebookLoginToken) => {
-  return async (dispatch) => {
-    const result = await axios({
-      url: "https://shop.cyberlearn.vn/api/Users/facebooklogin",
-      method: "POST",
-      data: facebookLoginToken,
-    });
-    console.log(result.data.content);
-    const action = facebookLoginAction(result.data.content);
-    dispatch(action);
+// export const facebookLogin = (facebookLoginToken) => {
+//   return async (dispatch) => {
+//     const result = await axios({
+//       url: "https://shop.cyberlearn.vn/api/Users/facebooklogin",
+//       method: "POST",
+//       data: facebookLoginToken,
+//     });
+//     console.log(result.data.content);
+//     const action = facebookLoginAction(result.data.content);
+//     dispatch(action);
 
-    history.push("/profile");
-    saveStoreJson(USER_LOGIN, result.data.content);
-    saveStore(ACCESS_TOKEN, result.data.content.accessToken);
-    //   //Gọi axios lấy dữ liệu api từ token
+//     history.push("/profile");
+//     saveStoreJson(USER_LOGIN, result.data.content);
+//     saveStore(ACCESS_TOKEN, result.data.content.accessToken);
+//     //   //Gọi axios lấy dữ liệu api từ token
 
-    //   //Gọi api getprofile
-    const actionGetProfile = getProfileApi();
-    dispatch(actionGetProfile);
-    const actionFav = renderFavProduct();
-    dispatch(actionFav);
-    window.location.reload();
-  };
-};
+//     //   //Gọi api getprofile
+//     const actionGetProfile = getProfileApi();
+//     dispatch(actionGetProfile);
+//     const actionFav = renderFavProduct();
+//     dispatch(actionFav);
+//     window.location.reload();
+//   };
+// };

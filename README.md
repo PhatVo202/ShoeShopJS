@@ -1,4 +1,4 @@
-Thành viên nhóm: Võ Lê Trường Phát
+Thành viên nhóm: Võ Lê Trường Phát.
 Có Các Trang giao diện và chức năng sau
 
 - Trang Register
