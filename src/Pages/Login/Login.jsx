@@ -4,24 +4,23 @@ import "../../assets/css/Login.css";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { loginApi } from "../../redux/reducers/userReducer";
-//facebookLogin
+import { facebookLogin, loginApi } from "../../redux/reducers/userReducer";
 
 import FacebookLogin from "react-facebook-login";
 const Login = () => {
   const dispatch = useDispatch();
 
-  // const responseFacebook = (res) => {
-  //   console.log(res);
+  const responseFacebook = (res) => {
+    console.log(res);
 
-  //   if (res?.accessToken) {
-  //     let facebookTokenAccess = {
-  //       facebookToken: res.accessToken,
-  //     };
-  //     const action = facebookLogin(facebookTokenAccess);
-  //     dispatch(action);
-  //   }
-  // };
+    if (res?.accessToken) {
+      let facebookTokenAccess = {
+        facebookToken: res.accessToken,
+      };
+      const action = facebookLogin(facebookTokenAccess);
+      dispatch(action);
+    }
+  };
 
   const form = useFormik({
     initialValues: {
